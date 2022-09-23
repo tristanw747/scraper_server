@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scraper Bot Main</title>
+</head>
+<h1 id="error-header"></h1>
+<h1>Macroeconomic Conditions</h1>
+<h2>Level 1: Global Conditions</h2>
+<!-- <h3>Covid-19, Russia/Ukraine War, China Lockdowns</h3> -->
+
+<!-- <label for="Covid-risks">Covid-19 Risks:</label>
+<select name="Covid-risks" id="Covid-risks">
+  <option value=>Death and harm for millions of people worldwide.</option>
+  <option value=>Effect on US economy: Labor shortages, disruption to supply chain.Reopening after lockdown means huge demand and high inflation</option>
+  <option value=>Best resolution: Vaccination + strain severity diminishes</option>
+  <option value=>Turn for the worse: New strain more infectious and deadly, or vaccine not effective</option>
+</select> -->
+
+<style>
+  .subject1{
+    position:absolute; top:100px; left:0px; margin-left:100px; margin-right:0px
+  }
+  .subject2{
+    position:absolute; top:100px; left:0px; margin-left:300px; margin-right:0px
+  }
+  .subject3{
+    position:relative; top:0px; left:0px; margin-left:600px; margin-right:0px
+  }
+  .dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    position:relative; top:5px; left:0px; margin-left:100px; margin-right:0px
+  }
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  }
+  .dropbtn2 {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    position:relative; top:5px; left:0px; margin-left:300px; margin-right:0px
+  }
+  .dropbtn2:hover, .dropbtn2:focus {
+    background-color: #2980B9;
+  }
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 640px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .dropdown a:hover {background-color: #ddd;}
+  .show {display: block;}
+
+  .dropdown2 {
+    position: relative;
+    display: inline-block;
+  }
+  .dropdown2-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 640px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .dropdown2-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .dropdown2 a:hover {background-color: #ddd;}
+  .show2 {display: block;}
+</style>
+  
+
+<body>
+  <h3 class ='subject1'>Covid-19 Data</h3>
+  <div class="dropdown">
+    <button onclick="dropdownCovid()" class="dropbtn">Show Effects</button>
+    <div id="myDropdown" class="dropdown-content">
+      <a>Death and harm for millions of people worldwide.</a>
+      <a>Effect on US economy: Labor shortages, disruption to supply chain.Reopening after lockdown means huge demand and high inflation</a>
+      <a>Best resolution: Vaccination + strain severity diminishes</a>
+      <a>Turn for the worse: New strain more infectious and deadly, or vaccine not effective</a>
+    </div>
+  </div>
+
+<script>
+  function dropdownCovid() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var w;
+      for (w = 0; w < dropdowns.length; w++) {
+        var openDropdown = dropdowns[w];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    } 
+
+
+  }
+  </script>
+
+
+<h3 class ='subject2'>Russia/Ukraine War</h3>
+  <div class="dropdown">
+    <button onclick="dropdownRussia()" class="dropbtn2">Show Effects</button>
+    <div id="myDropdown2" class="dropdown-content">
+      <a>Severe energy shortage due to western sanctions against Russia for starting war with Ukraine. </a>
+      <a>Effect on US economy: High gas prices</a>
+      <a>Best resolution: War ends, sanctions end, new sources of energy</a>
+      <a>Turn for the worse: war escalates, nuclear weapons used</a>
+    </div>
+  </div>
+  
+<script>
+  function dropdownRussia() {
+    document.getElementById("myDropdown2").classList.toggle("show2");
+  }
+  // window.onclick = function(event) {
+  //   if (!event.target.matches('.dropbtn2')) {
+  //     var dropdowns2 = document.getElementsByClassName("dropdown-content");
+  //     var q;
+  //     for (q = 0; q < dropdowns2.length; q++) {
+  //       var openDropdown2 = dropdowns2[q];
+  //       if (openDropdown2.classList.contains('show2')) {
+  //         openDropdown2.classList.remove('show2');
+  //       }
+  //     }
+  //   }
+  // }
+</script>
+
+
+
+
+
+
+
+
+
+ 
+    <div class="container">
+      <div class="imageHolder">
+        <img id="image" />
+      </div>
+      <div >
+        <p>CPI Release Dates <br/>Subject Month | Date & Time of Release</p>
+        <span id="CPISchedulesendtoHTML"></span>
+        <p>FOMC Meeting Schedule 2022<br/>*starred dates indicate economic projection release dates*</p>
+        <span id="FedSchedulesendtoHTML"></span>
+        <p>AccessNewsWire</p>
+        <!-- <span id="price"></span> -->
+        <span id="product3"></span>
+        <span id="product"></span>
+        <span id="product2"></span>
+        <br/><button id="remove-button1">Remove Matches - AccessNewsWire</button>
+        <p>Financial Times</p>
+        <span id="product6"></span>
+        <span id="product4"></span>
+        <span id="product5"></span>
+        <br/><button id="remove-button2">Remove Matches - Financial Times</button>
+        <p>Business NewsWire</p>
+        <span id="BusinessNWsendtoHTML1"></span>
+        <span id="BusinessNWsendtoHTML2"></span>
+        <span id="BusinessNWsendtoHTML3"></span>
+        <br/><button id="remove-buttonBusinessNW">Remove Matches - Business NewsWire</button>
+     
+
+
+        
+        <form id="custom-filter">
+          <input type="text" placeholder="customer filter text" name="newItem">
+          <button onclick="play()">Submit</button>
+        </form>
+
+
+
+        <script>
+          function play() {
+            var audio = document.getElementById("audio");
+            audio.play();
+          }
+      </script>
+      <audio id="audio" src="https://www.pachd.com/sfx/lighter2.wav"></audio>
+
+
+
+      </div>
+    </div>
+    <script>id="test"</script>
+    
+  
+    
+    <script src="main.js"></script>
+  </body>
+</html>
+
+<!-- <p>&&&&</p>
+        <span id="****sendtoHTML1"></span>
+        <span id="****sendtoHTML2"></span>
+        <span id="****sendtoHTML3"></span> 
+
+        <button id="remove-button****">Remove Matches - &&&&</button>-->
+
+
+
+
+
+
+
+          <!-- <style>
+    .container {
+      display: flex;
+      flex-direction: row;
+      padding: 1rem;
+    }
+    .details {
+      display: flex;
+      flex-direction: column;
+      padding-left: 1rem;
+    }
+    img {
+      width: 300px;
+      height: auto;
+    }
+    span {
+      padding: 5rem 0;
+    }
+  </style> -->
